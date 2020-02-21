@@ -1,0 +1,27 @@
+<div class="form-container">
+    <form [formGroup]="employeeForm" (ngSubmit)="submitForm()" novalidate>
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Apellidos" formControlName="lastName">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <input matInput placeholder="phone" formControlName="phone">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <!-- <input matInput placeholder="Fecha de Alta" formControlName="createDate"> -->
+            <input matInput placeholder="Fecha de Alta" formControlName="createDate" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <input matInput placeholder="Sueldo Diario" formControlName="daySalary">
+        </mat-form-field>
+        <div class="button-wrapper">
+            <button mat-flat-button color="primary" [disabled]="employeeForm.pristine || !employeeForm.valid">
+                Guardar
+            </button>
+        </div>
+    </form>
+</div>
